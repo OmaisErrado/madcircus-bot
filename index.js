@@ -54,3 +54,15 @@ async function startBot() {
 }
 
 startBot();
+// Servidor fake para o Render não derrubar
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Bot MadCircus rodando 🚀");
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log("🌐 Servidor web ativo na porta", PORT);
+});
